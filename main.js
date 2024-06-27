@@ -78,13 +78,18 @@ taskBox.forEach(column =>{
          
     })
 
-    column.addEventListener("dragover",event=>{
+   column.addEventListener("dragover", event => {
         event.preventDefault();
-        event.dataTransfer.dropEffect="move";
+        event.dataTransfer.dropEffect = "move";
         
-        const card=document.querySelector(".dragging")
-        column.appendChild(card);
-    })
+        const card = document.querySelector(".dragging");
+       
+        console.log(card)
+
+        if (card) {
+            column.appendChild(card);
+        }
+    });
     column.addEventListener("dragend",event=>{
         if(event.target.classList.contains("card")){
             event.target.classList.remove("dragging");
